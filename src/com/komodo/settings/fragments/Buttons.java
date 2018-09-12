@@ -22,14 +22,17 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
 
 import com.android.settings.R;
+import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -39,7 +42,15 @@ import com.komodo.settings.preferences.CustomSeekBarPreference;
 public class Buttons extends SettingsPreferenceFragment implements
 OnPreferenceChangeListener {
 
-    private Context mContext;
+    private static final String KEY_BUTTON_BRIGHTNESS = "button_brightness";
+    private static final String KEY_BUTTON_BRIGHTNESS_SW = "button_brightness_sw";
+    private static final String KEY_BACKLIGHT_TIMEOUT = "backlight_timeout";
+
+    private ListPreference mBacklightTimeout;
+    private CustomSeekBarPreference mButtonBrightness;
+    private SwitchPreference mButtonBrightness_sw;
+
+    private static final String CATEGORY_HWKEY = "hardware_keys";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -48,10 +59,78 @@ OnPreferenceChangeListener {
         addPreferencesFromResource(R.xml.komodo_settings_button);
         getActivity().setTitle(R.string.buttons_title);
 
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        // HW Keys
+        final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
+        final PreferenceCategory hwkeyCat = (PreferenceCategory) prefScreen
+                .findPreference(CATEGORY_HWKEY);
+        int keysDisabled = 0;
+        if (!needsNavbar) {
+            final boolean variableBrightness = getResources().getBoolean(
+                    com.android.internal.R.bool.config_deviceHasVariableButtonBrightness);
+
+            mBacklightTimeout =
+                    (ListPreference) findPreference(KEY_BACKLIGHT_TIMEOUT);
+
+            mButtonBrightness =
+                    (CustomSeekBarPreference) findPreference(KEY_BUTTON_BRIGHTNESS);
+
+            mButtonBrightness_sw =
+                    (SwitchPreference) findPreference(KEY_BUTTON_BRIGHTNESS_SW);
+
+                if (mBacklightTimeout != null) {
+                    mBacklightTimeout.setOnPreferenceChangeListener(this);
+                    int BacklightTimeout = Settings.System.getInt(getContentResolver(),
+                            Settings.System.BUTTON_BACKLIGHT_TIMEOUT, 1000);
+                    mBacklightTimeout.setValue(Integer.toString(BacklightTimeout));
+                    mBacklightTimeout.setSummary(mBacklightTimeout.getEntry());
+                }
+
+                if (variableBrightness) {
+                    hwkeyCat.removePreference(mButtonBrightness_sw);
+                    if (mButtonBrightness != null) {
+                        int ButtonBrightness = Settings.System.getInt(getContentResolver(),
+                                Settings.System.BUTTON_BRIGHTNESS, 120);
+                        mButtonBrightness.setValue(ButtonBrightness / 1);
+                        mButtonBrightness.setOnPreferenceChangeListener(this);
+                    }
+                } else {
+                    hwkeyCat.removePreference(mButtonBrightness);
+                    if (mButtonBrightness_sw != null) {
+                        mButtonBrightness_sw.setChecked((Settings.System.getInt(getContentResolver(),
+                                Settings.System.BUTTON_BRIGHTNESS, 1) == 1));
+                        mButtonBrightness_sw.setOnPreferenceChangeListener(this);
+                    }
+                }
+        } else {
+            prefScreen.removePreference(hwkeyCat);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
             ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mBacklightTimeout) {
+            String BacklightTimeout = (String) newValue;
+            int BacklightTimeoutValue = Integer.parseInt(BacklightTimeout);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.BUTTON_BACKLIGHT_TIMEOUT, BacklightTimeoutValue);
+            int BacklightTimeoutIndex = mBacklightTimeout
+                    .findIndexOfValue(BacklightTimeout);
+            mBacklightTimeout
+                    .setSummary(mBacklightTimeout.getEntries()[BacklightTimeoutIndex]);
+            return true;
+        } else if (preference == mButtonBrightness) {
+            int value = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.BUTTON_BRIGHTNESS, value * 1);
+            return true;
+        } else if (preference == mButtonBrightness_sw) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.BUTTON_BRIGHTNESS, value ? 1 : 0);
+            return true;
+        }
         return false;
     }
 
