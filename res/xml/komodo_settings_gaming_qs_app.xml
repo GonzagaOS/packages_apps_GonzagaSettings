@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2020 Komodo-OS-Rom
+
+<!-- Copyright (C) 2020 The exTHmUI Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,13 +14,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-  
-    <color name="bottombar_bg">@*android:color/primary_device_default_settings</color>
-    <color name="bottombar_active">@*android:color/accent_device_default_dark</color>
-    <color name="bottom_inactive">#99FFFFFF</color>
-    <color name="bottombar_ripple">#33FFFFFF</color>
 
-    <color name="komodo_gaming_background">@*android:color/accent_device_default_dark</color>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/gaming_mode_quick_start_apps_title" >
 
-</resources>
+    <com.komodo.settings.preferences.PackageListPreference
+        android:key="gaming_mode_qs_app_list" />
+
+</PreferenceScreen>
