@@ -22,4 +22,10 @@
         android:key="account_animation"
         android:layout="@layout/notif_animation" />
 
+    <com.komodo.settings.preferences.CardviewPreference
+        android:key="statusbar_category"
+        android:title="@string/statusbar_title"
+        android:fragment="com.komodo.settings.fragments.StatusBar"
+        android:icon="@drawable/tile_statusbar" />
+
 </PreferenceScreen>

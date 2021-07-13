@@ -34,10 +34,4 @@
         android:fragment="com.komodo.settings.fragments.QuickSettings"
         android:icon="@drawable/tile_quicks" />
 
-    <com.komodo.settings.preferences.CardviewPreference
-        android:key="statusbar_category"
-        android:title="@string/statusbar_title"
-        android:fragment="com.komodo.settings.fragments.StatusBar"
-        android:icon="@drawable/tile_statusbar" />
-
 </PreferenceScreen>
