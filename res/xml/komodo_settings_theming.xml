@@ -25,27 +25,17 @@
         android:defaultValue="0xffffff"
         android:persistent="false" />
 
-    <PreferenceCategory
-        android:key="prebuilt_picker_category"
-        android:title="@string/prebuilt_picker_category_title">
+    <ListPreference
+        android:key="android.theme.customization.font"
+        android:title="@string/theme_customization_font_title"/>
 
-        <ListPreference
-            android:key="android.theme.customization.accent_color"
-            android:title="@string/theme_customization_accent_color_title"/>
+    <ListPreference
+        android:key="android.theme.customization.adaptive_icon_shape"
+        android:title="@string/theme_customization_icon_shape_title"/>
 
-        <ListPreference
-            android:key="android.theme.customization.font"
-            android:title="@string/theme_customization_font_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/theme_customization_icon_shape_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.icon_pack.android"
-            android:title="@string/theme_customization_sysui_icon_title"/>
-
-    </PreferenceCategory>
+    <ListPreference
+        android:key="android.theme.customization.icon_pack.android"
+        android:title="@string/theme_customization_sysui_icon_title"/>
 
     <PreferenceCategory
         android:key="gvisual_mod_category"
