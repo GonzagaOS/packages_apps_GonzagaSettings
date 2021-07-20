@@ -45,7 +45,6 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.komodo.settings.fragments.controller.QsTileStylePreferenceController;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
@@ -107,7 +106,6 @@ public class Theming extends DashboardFragment
                 "android.theme.customization.adaptive_icon_shape"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.icon_pack.android"));
-        controllers.add(new QsTileStylePreferenceController(context));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.statusbar_height"));
         controllers.add(new OverlayCategoryPreferenceController(context,
