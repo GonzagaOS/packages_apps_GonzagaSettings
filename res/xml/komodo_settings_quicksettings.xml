@@ -90,6 +90,12 @@
         android:title="@string/quick_settings_general_category_title">
 
         <com.komodo.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_new_tint"
+            android:title="@string/qs_bg_use_new_tint"
+            android:summary="@string/qs_bg_use_new_tint_summary"
+            android:defaultValue="false" />
+
+        <com.komodo.settings.preferences.SystemSettingSwitchPreference
             android:key="quick_settings_tiles_vibrate"
             android:title="@string/quick_settings_vibrate_title"
             android:summary="@string/quick_settings_vibrate_summary"
