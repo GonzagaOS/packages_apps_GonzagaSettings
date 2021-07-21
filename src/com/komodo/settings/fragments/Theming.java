@@ -104,6 +104,8 @@ public class Theming extends DashboardFragment
                 "android.theme.customization.statusbar_height"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.ui_radius"));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.primary_color"));
         return controllers;
     }
 

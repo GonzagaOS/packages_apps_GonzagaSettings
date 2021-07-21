@@ -156,6 +156,7 @@
     <string name="theme_customization_icon_shape_title">Icon shape</string>
     <!-- [CHAR_LIMIT=NONE] Developer Settings: Title of the setting which enables overlays to customize the statusbar icon -->
     <string name="theme_customization_sysui_icon_title">Status bar icon style</string>
+    <string name="theme_customization_primary_color_title">Primary color</string>
 
     <!-- QS Tint -->
     <string name="qs_bg_use_new_tint">New tint style</string>
