@@ -18,6 +18,7 @@
     <!-- Maintainers -->
     <string-array name="maintainers_title" translatable="false">
         <item>Kry9toN</item>
+        <item>TeraaBytee</item>
         <item>GodongTelo</item>
         <item>Alanndz</item>
         <item>Harun</item>
@@ -43,6 +44,7 @@
     <!-- Devices maintained by maintainer -->
     <string-array name="maintainers_devices" translatable="false">
         <item>Xiaomi Redmi 5 Plus (vince)</item>
+        <item>Xiaomi Redmi Note 8 Pro (begonia)</item>
         <item>Xiaomi Redmi Note 8 (ginkgo)</item>
         <item>Xiaomi Redmi Note 7 (lavender)</item>
         <item>Pocophone F1 (beryllium)</item>
@@ -68,6 +70,7 @@
     <!-- Telegram URL of maintainer -->
     <string-array name="maintainers_url" translatable="false">
         <item>https://t.me/Kry9toN</item>
+        <item>https://t.me/TeraaBytee</item>
         <item>https://t.me/godongtelo</item>
         <item>https://t.me/alanndz</item>
         <item>https://t.me/aarunalr</item>
