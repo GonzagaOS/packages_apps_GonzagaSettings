@@ -39,6 +39,7 @@
         <item>EsMarjan</item>
         <item>henshin</item>
         <item>trisf</item>
+        <item>Ignacio Garcia</item>
     </string-array>
 
     <!-- Devices maintained by maintainer -->
@@ -65,6 +66,7 @@
         <item>Xiaomi Redmi Note 3 pro (Kenzo)</item>
         <item>Realme 5/5s/5i (RMX1911/RMX2030)</item>
         <item>Xiaomi Mi 6 (Sagit)</item>
+        <item>Motorola Moto G7 Power (Ocean)</item>
     </string-array>
 
     <!-- Telegram URL of maintainer -->
@@ -91,6 +93,7 @@
         <item>https://t.me/rhardinata31</item>
         <item>https://t.me/henztz</item>
         <item>https://t.me/trisf</item>
+        <item>https://t.me/Naxo79</item>
     </string-array>
 
 </resources>
