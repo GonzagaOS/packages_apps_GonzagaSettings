@@ -33,6 +33,7 @@
     <string name="theming_title">Theming</string>
     <string name="gaming_title">Gaming mode</string>
     <string name="gaming_title_summary">Extra features for immersive gaming experience</string>
+    <string name="gaming_mode_menu_opacity_title">Menu opacity level</string>
 
     <!-- Bottom navigation categories -->
     <string name="navigation_about_title">About</string>
