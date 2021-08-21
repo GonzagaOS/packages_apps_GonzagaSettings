@@ -80,12 +80,6 @@
 
     </PreferenceCategory>
 
-    <com.komodo.settings.preferences.SystemSettingSwitchPreference
-        android:key="qs_panel_bg_use_new_tint"
-        android:title="@string/qs_bg_use_new_tint"
-        android:summary="@string/qs_bg_use_new_tint_summary"
-        android:defaultValue="false" />
-
     <PreferenceCategory
         android:title="@string/quick_settings_general_category_title">
 
