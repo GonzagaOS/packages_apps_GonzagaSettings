@@ -111,6 +111,7 @@ public class Theming extends DashboardFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+    	ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mThemeColor) {
             int color = (Integer) newValue;
             String hexColor = String.format("%08X", (0xFFFFFFFF & color));
@@ -119,10 +120,11 @@ public class Theming extends DashboardFragment
                  mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
+            } catch (RemoteException ignored) {
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 
     private void setupAccentPref() {
