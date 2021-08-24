@@ -17,7 +17,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="komodo_settings_title">Komodo Settings</string>
-    <string name="komodo_dashboard_summary">Customize your device wildly</string>
+    <string name="komodo_dashboard_summary">Customize your Android wildly</string>
 	
     <!-- Categories -->
     <string name="about_title">About</string>
