@@ -16,8 +16,8 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="komodo_settings_title">Komodo Settings</string>
-    <string name="komodo_dashboard_summary">Original from indonesia</string>
+    <string name="komodo_settings_title">Reptools</string>
+    <string name="komodo_dashboard_summary">Customize your Android wildly</string>
 	
     <!-- Categories -->
     <string name="about_title">About Komodo</string>
