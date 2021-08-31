@@ -26,6 +26,7 @@ import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
+import android.view.MenuItem;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -77,7 +78,7 @@ public class Theming extends DashboardFragment
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        setRetainInstance(true);
+        // setRetainInstance(true);
         getActivity().setTitle(R.string.theming_title);
 
         // RGB accent
@@ -93,6 +94,7 @@ public class Theming extends DashboardFragment
 
     private static List<AbstractPreferenceController> buildPreferenceControllers(
             Context context, Lifecycle lifecycle, Fragment fragment) {
+
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.font"));
@@ -135,6 +137,21 @@ public class Theming extends DashboardFragment
                 : Color.parseColor("#" + colorVal);
         mThemeColor.setNewPreviewColor(color);
         mThemeColor.setOnPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onContextItemSelected(item);
     }
 
     /**
