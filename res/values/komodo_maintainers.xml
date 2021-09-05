@@ -42,6 +42,7 @@
         <item>henshin</item>
         <item>trisf</item>
         <item>Ignacio Garcia</item>
+        <item>skittels15</item>
     </string-array>
 
     <!-- Devices maintained by maintainer -->
@@ -71,6 +72,7 @@
         <item>Realme 5/5s/5i (RMX1911/RMX2030)</item>
         <item>Xiaomi Mi 6 (Sagit)</item>
         <item>Motorola Moto G7 Power (Ocean)</item>
+        <item>Xiaomi Redmi 8/8A/8A Dual (Olives)</item>
     </string-array>
 
     <!-- Telegram URL of maintainer -->
@@ -100,6 +102,7 @@
         <item>https://t.me/henztz</item>
         <item>https://t.me/trisf</item>
         <item>https://t.me/Naxo79</item>
+        <item>https://t.me/BEERdMANN</item>
     </string-array>
 
 </resources>
